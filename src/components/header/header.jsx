@@ -2,19 +2,45 @@ import React from 'react'
 import '../../styles/styles.scss'
 import {ReactComponent as Logo} from './../../assets/logo.svg';
 import {ReactComponent as Menu} from './../../assets/menu.svg';
+import {ReactComponent as CloseIcon} from './../../assets/cancel.svg';
 import {ReactComponent as FilterActive} from './../../assets/filter-active.svg';
 import {ReactComponent as Filter} from './../../assets/filter.svg';
 import {Link, useLocation} from "react-router-dom";
+import Modal from 'react-modal';
 import Input from "../input/input";
-import Main from "../../pages/main/main";
+
+const customStyles = {
+    // overlay: {
+    //     background: "rgba(0, 0, 0, 0.75)",
+    //     zIndex: 100
+    // },
+    // content: {
+    //     top: '50%',
+    //     left: '50%',
+    //     right: 'auto',
+    //     bottom: 'auto',
+    //     marginRight: '-50%',
+    //     transform: 'translate(-50%, -50%)',
+    //     width: "100%",
+    //     height: "100%",
+    //     padding: 0,
+    //     display: "flex",
+    //     alignItems: "centre",
+    //     justifyContent: "centre"
+    // }
+};
 
 const Header = (props) => {
 
     const [filterActive, setFilterActive] = React.useState("none");
+    const [modalIsOpen,setIsOpen] = React.useState(false);
+
+    const openModal = () => {
+        setIsOpen(true);
+    };
     const [filter, setFilter] = React.useState("");
     let location = useLocation();
     const path = location.pathname;
-    console.log(path)
 
     const dateFrom = (e) => {
         props.onChangeDateFrom(e.target.value);
@@ -63,7 +89,7 @@ const Header = (props) => {
                     </div>
                 }
                 <div className="menu-mobile">
-                    <Menu width={28}/>
+                    <Menu onClick={openModal} width={28}/>
                 </div>
             </div>
             <div style={{display: filterActive}} className="header-filter">
@@ -72,6 +98,28 @@ const Header = (props) => {
                 <label>Date to</label>
                 <Input type="date" onChange={dateTo}/>
             </div>
+
+            <Modal
+                isOpen={modalIsOpen}
+                // onAfterOpen={afterOpenModal}
+                // onRequestClose={closeModal}
+                // style={customStyles}
+                className="menu-modal"
+                overlayClassName="menu-overlay"
+                contentLabel="Modal"
+            >
+                <CloseIcon className="menu-close" fontSize={"small"} onClick={() => setIsOpen(false)}/>
+                <div className="menu-modal-container">
+                    <Link to="/">
+                        <p onClick={() => setIsOpen(false)}>jogs</p>
+                    </Link>
+                    <Link to="/info">
+                        <p onClick={() => setIsOpen(false)} style={{color: "#7ed321"}}>info</p>
+                    </Link>
+                    <p>contact us</p>
+                </div>
+
+            </Modal>
         </div>
     )
 };
