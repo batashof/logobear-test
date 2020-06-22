@@ -1,0 +1,35 @@
+.add-information {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .add-information-box {
+    width: 503px;
+    height: 379px;
+    border-radius: 44px;
+    background-color: $green;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-flow: column;
+    text-align: center;
+    .add-information-box-item {
+      display: flex;
+      justify-content: space-between;
+      width: 320px;
+      label {
+        font-size: $ml;
+        font-weight: 600;
+      }
+      .add-information-box-input {
+        width: 236px;
+        margin: 0;
+      }
+    }
+    .add-information-button {
+      width: 320px;
+    }
+
+  }
+}

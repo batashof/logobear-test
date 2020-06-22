@@ -1,0 +1,12 @@
+.input {
+  width: 125px;
+  height: 31px;
+  border-radius: 11px;
+  border: solid 1px $grey;
+  background-color: $white;
+  margin-left: 15px;
+  margin-right: 45px;
+  &:focus {
+    outline: none;
+  }
+}

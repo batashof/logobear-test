@@ -1,0 +1,38 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  .login-box {
+    width: 503px;
+    height: 379px;
+    border-radius: 44px;
+    background-color: $rose;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    text-align: center;
+    .login-button {
+      margin-top: 56px;
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .login-box {
+      background-color: white;
+      svg {
+        g {
+          path {
+            fill: $rose;
+          }
+
+        }
+      }
+
+      .login-button {
+        border: solid 3px $rose;
+        color: $rose;
+      }
+    }
+  }
+}

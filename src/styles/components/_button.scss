@@ -1,0 +1,14 @@
+.button {
+  width: 151px;
+  height: 60px;
+  border-radius: 35px;
+  border: solid 3px $white;
+  color: $white;
+  background-color: transparent;
+  font-size: $l;
+  font-weight: bold;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+}
