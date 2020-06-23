@@ -92,6 +92,14 @@
     align-items: center;
     justify-content: center;
     flex-flow: column;
+    .menu-logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      g {
+        fill: $green
+      }
+    }
     .menu-close {
       path {
         fill: $grey;

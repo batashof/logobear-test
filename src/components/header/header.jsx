@@ -9,27 +9,6 @@ import {Link, useLocation} from "react-router-dom";
 import Modal from 'react-modal';
 import Input from "../input/input";
 
-const customStyles = {
-    // overlay: {
-    //     background: "rgba(0, 0, 0, 0.75)",
-    //     zIndex: 100
-    // },
-    // content: {
-    //     top: '50%',
-    //     left: '50%',
-    //     right: 'auto',
-    //     bottom: 'auto',
-    //     marginRight: '-50%',
-    //     transform: 'translate(-50%, -50%)',
-    //     width: "100%",
-    //     height: "100%",
-    //     padding: 0,
-    //     display: "flex",
-    //     alignItems: "centre",
-    //     justifyContent: "centre"
-    // }
-};
-
 const Header = (props) => {
 
     const [filterActive, setFilterActive] = React.useState("none");
@@ -50,13 +29,15 @@ const Header = (props) => {
     };
 
     const changeFilter = () => {
-        if (filterActive === "none") {
-            setFilterActive("");
-            setFilter("none");
-        } else {
-            setFilterActive("none");
-            setFilter("");
+        if (path === "/") {
+            if (filterActive === "none") {
+                setFilterActive("");
+                setFilter("none");
+            } else {
+                setFilterActive("none");
+                setFilter("");
 
+            }
         }
     };
     return (
@@ -92,7 +73,7 @@ const Header = (props) => {
                     <Menu onClick={openModal} width={28}/>
                 </div>
             </div>
-            <div style={{display: filterActive}} className="header-filter">
+            <div style={path === "/" ?{display: filterActive}: {display: "none"}} className="header-filter">
                 <label>Date from</label>
                 <Input type="date" onChange={dateFrom}/>
                 <label>Date to</label>
@@ -108,6 +89,7 @@ const Header = (props) => {
                 overlayClassName="menu-overlay"
                 contentLabel="Modal"
             >
+                <Logo className="menu-logo"/>
                 <CloseIcon className="menu-close" fontSize={"small"} onClick={() => setIsOpen(false)}/>
                 <div className="menu-modal-container">
                     <Link to="/">

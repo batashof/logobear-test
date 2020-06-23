@@ -5,6 +5,7 @@ import Button from "../../components/button/button";
 import {ReactComponent as CloseIcon} from './../../assets/cancel.svg';
 
 import {postData} from "../../api/data";
+import {Link} from "react-router-dom";
 
 const Add = (props) => {
     const token = localStorage.getItem("logo-bear-token");
@@ -14,12 +15,13 @@ const Add = (props) => {
     const handleSubmit = (e) => {
         postData(token, date, time, distance);
         props.history.push('/')
-        // e.preventDefault();
     };
     return (
         <div className="add-information">
             <form className="add-information-box" onSubmit={handleSubmit}>
-                <CloseIcon className="box-close" fontSize={"small"} />
+                <Link to="/" className="box-close">
+                    <CloseIcon  fontSize={"small"} />
+                </Link>
 
                 <div className="add-information-box-item">
                     <label>Distance</label>
