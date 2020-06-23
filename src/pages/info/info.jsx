@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../styles/styles.scss'
 
-const Info = (props) => {
+const Info = () => {
     return (
         <div className="info">
             <div className="info-box">

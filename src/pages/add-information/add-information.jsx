@@ -20,20 +20,22 @@ const Add = (props) => {
         <div className="add-information">
             <form className="add-information-box" onSubmit={handleSubmit}>
                 <Link to="/" className="box-close">
-                    <CloseIcon  fontSize={"small"} />
+                    <CloseIcon fontSize={"small"}/>
                 </Link>
 
                 <div className="add-information-box-item">
                     <label>Distance</label>
-                    <Input type="number" onChange={(e)=>setDistance(e.target.value)} className="add-information-box-input"/>
+                    <Input type="number" onChange={(e) => setDistance(e.target.value)}
+                           className="add-information-box-input"/>
                 </div>
                 <div className="add-information-box-item">
                     <label>Time</label>
-                    <Input type="number" onChange={(e)=>setTime(e.target.value)} className="add-information-box-input"/>
+                    <Input type="number" onChange={(e) => setTime(e.target.value)}
+                           className="add-information-box-input"/>
                 </div>
                 <div className="add-information-box-item">
                     <label>Date</label>
-                    <Input type="date" onChange={(e)=>setDate(e.target.value)} className="add-information-box-input"/>
+                    <Input type="date" onChange={(e) => setDate(e.target.value)} className="add-information-box-input"/>
                 </div>
                 <Button name="Save" type="submit" className="add-information-button"/>
             </form>

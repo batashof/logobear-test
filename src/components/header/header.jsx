@@ -12,7 +12,7 @@ import Input from "../input/input";
 const Header = (props) => {
 
     const [filterActive, setFilterActive] = React.useState("none");
-    const [modalIsOpen,setIsOpen] = React.useState(false);
+    const [modalIsOpen, setIsOpen] = React.useState(false);
 
     const openModal = () => {
         setIsOpen(true);
@@ -73,7 +73,7 @@ const Header = (props) => {
                     <Menu onClick={openModal} width={28}/>
                 </div>
             </div>
-            <div style={path === "/" ?{display: filterActive}: {display: "none"}} className="header-filter">
+            <div style={path === "/" ? {display: filterActive} : {display: "none"}} className="header-filter">
                 <label>Date from</label>
                 <Input type="date" onChange={dateFrom}/>
                 <label>Date to</label>
@@ -82,9 +82,6 @@ const Header = (props) => {
 
             <Modal
                 isOpen={modalIsOpen}
-                // onAfterOpen={afterOpenModal}
-                // onRequestClose={closeModal}
-                // style={customStyles}
                 className="menu-modal"
                 overlayClassName="menu-overlay"
                 contentLabel="Modal"
